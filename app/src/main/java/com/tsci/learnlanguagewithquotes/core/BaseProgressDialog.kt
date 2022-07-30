@@ -4,7 +4,7 @@ import android.app.Dialog
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-import com.appcent.learnlanguagewithquotes.R
+import com.tsci.learnlanguagewithquotes.R
 
 /**
  * Created by Mehmet Peker on 13.07.2022.
