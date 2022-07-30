@@ -1,7 +1,8 @@
-package com.appcent.learnlanguagewithquotes
+package com.tsci.learnlanguagewithquotes.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.appcent.learnlanguagewithquotes.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

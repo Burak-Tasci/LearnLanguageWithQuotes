@@ -1,4 +1,4 @@
-package com.appcent.learnlanguagewithquotes
+package com.tsci.learnlanguagewithquotes
 
 import org.junit.Test
 
