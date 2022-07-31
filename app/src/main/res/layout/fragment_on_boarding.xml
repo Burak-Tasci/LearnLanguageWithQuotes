@@ -1,18 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
     </data>
 
-    <FrameLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/background_gradient"
         tools:context=".ui.onboarding.OnBoardingFragment">
 
-        <!-- TODO: Update blank fragment layout -->
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivFlags"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/margin_40dp"
+            android:src="@drawable/flags"
+            app:layout_constraintDimensionRatio="1.4f"
+            app:layout_constraintTop_toTopOf="parent" />
 
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_28dp"
+            android:gravity="center"
+            android:text="@string/onboarding_title"
+            android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/ivFlags" />
 
-    </FrameLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilNative"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_30dp"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle">
+
+            <AutoCompleteTextView
+                android:id="@+id/actvNative"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/native_language"
+                android:inputType="none" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilTarget"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_30dp"
+            android:layout_marginTop="@dimen/margin_14dp"
+            app:layout_constraintTop_toBottomOf="@id/tilNative">
+
+            <AutoCompleteTextView
+                android:id="@+id/actvTarget"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/target_language"
+                android:inputType="none" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSubmit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_14dp"
+            android:backgroundTint="@color/baby_blue_eyes"
+            android:text="@string/submit_btn"
+            android:textColor="@color/black"
+            app:cornerRadius="@dimen/radius_8dp"
+            app:layout_constraintEnd_toEndOf="@id/tilTarget"
+            app:layout_constraintTop_toBottomOf="@id/tilTarget" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_35dp"
+            android:layout_marginBottom="@dimen/margin_20dp"
+            android:gravity="center"
+            android:text="@string/onboarding_choice_text"
+            android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
