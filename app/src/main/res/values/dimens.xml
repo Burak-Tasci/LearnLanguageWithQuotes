@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="textsize_24sp">24sp</dimen>
+    <dimen name="spacing_5sp">5sp</dimen>
+    <dimen name="margin_28dp">28dp</dimen>
+    <dimen name="margin_40dp">40dp</dimen>
+    <dimen name="margin_30dp">30dp</dimen>
+    <dimen name="margin_14dp">14dp</dimen>
+    <dimen name="radius_8dp">8dp</dimen>
+    <dimen name="margin_20dp">20dp</dimen>
+    <dimen name="margin_35dp">35dp</dimen>
+    <dimen name="textsize_14sp">14sp</dimen>
+</resources>
