@@ -1,5 +1,6 @@
 package com.tsci.learnlanguagewithquotes.ui.onboarding
 
+import androidx.navigation.fragment.findNavController
 import com.tsci.learnlanguagewithquotes.R
 import com.tsci.learnlanguagewithquotes.core.BaseFragment
 import com.tsci.learnlanguagewithquotes.databinding.FragmentOnBoardingBinding
@@ -14,4 +15,12 @@ class OnBoardingFragment : BaseFragment<FragmentOnBoardingBinding, OnBoardingVie
     }
     override fun viewModelClass(): Class<OnBoardingViewModel> = OnBoardingViewModel::class.java
 
+
+    override fun initListeners() = with(binding){
+        btnSubmit.setOnClickListener {
+            findNavController().navigate(
+                OnBoardingFragmentDirections.toHomeFragment()
+            )
+        }
+    }
 }
