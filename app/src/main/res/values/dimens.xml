@@ -10,4 +10,9 @@
     <dimen name="margin_20dp">20dp</dimen>
     <dimen name="margin_35dp">35dp</dimen>
     <dimen name="textsize_14sp">14sp</dimen>
+    <dimen name="margin_18dp">18dp</dimen>
+    <dimen name="margin_8dp">8dp</dimen>
+    <dimen name="padding_4dp">4dp</dimen>
+    <dimen name="padding_8dp">8dp</dimen>
+    <dimen name="margin_4dp">4dp</dimen>
 </resources>

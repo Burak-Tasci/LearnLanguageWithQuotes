@@ -1,10 +1,12 @@
 <resources>
     <string name="app_name">LearnLanguageWithQuotes</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="onboarding_title">LEARN LANGUAGE WITH\nQUOTES</string>
     <string name="native_language">Native Language</string>
     <string name="target_language">Target Language</string>
     <string name="submit_btn">Submit</string>
     <string name="onboarding_choice_text">You can change your choice later again</string>
+    <string name="quote_label"><u>The Quote</u></string>
+    <string name="owner_label"><u>Owner</u></string>
+    <string name="tags_label"><u>Tags</u></string>
 </resources>
