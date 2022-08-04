@@ -1,20 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
     </data>
 
-    <FrameLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/background_gradient"
         tools:context=".ui.home.HomeFragment">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Hello" />
 
-    </FrameLayout>
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvQuoteLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_18dp"
+            android:layout_marginTop="@dimen/margin_40dp"
+            android:text="@string/quote_label"
+            android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignoreViewBinding="false" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvQuote"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_8dp"
+            android:layout_marginEnd="@dimen/margin_18dp"
+            android:textAppearance="@style/TextAppearance.Material3.HeadlineSmall"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/tvQuoteLabel"
+            app:layout_constraintTop_toBottomOf="@id/tvQuoteLabel"
+            tools:text="We know what we are, but know not what we may be." />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvOwnerLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_18dp"
+            android:layout_marginTop="@dimen/margin_8dp"
+            android:text="@string/owner_label"
+            android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvQuote"
+            tools:ignoreViewBinding="false" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvOwner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_8dp"
+            android:layout_marginEnd="@dimen/margin_18dp"
+            android:textAppearance="@style/TextAppearance.Material3.HeadlineSmall"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/tvQuoteLabel"
+            app:layout_constraintTop_toBottomOf="@id/tvOwnerLabel"
+            tools:text="William Shakespeare" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvTagsLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_18dp"
+            android:layout_marginTop="@dimen/margin_8dp"
+            android:text="@string/tags_label"
+            android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvOwner"
+            tools:ignoreViewBinding="false" />
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/cpTags"
+            android:layout_width="match_parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTagsLabel"
+            android:layout_height="wrap_content"/>
+
+        
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
