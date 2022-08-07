@@ -11,16 +11,16 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
 
 interface QuoteRepository {
-    fun getQuote(): Flow<Result<QuoteEntity>>
+    fun getQuote(languageCode: String): Flow<Result<QuoteEntity>>
 }
 
 class QuoteRepositoryImpl @Inject constructor(
     private val api: QuoteApi
 ) : QuoteRepository, BaseRepositoryImpl() {
 
-    override fun getQuote(): Flow<Result<QuoteEntity>> = callbackFlow {
+    override fun getQuote(languageCode: String): Flow<Result<QuoteEntity>> = callbackFlow {
         createCall {
-            api.getQuote()
+            api.getQuote(languageCode)
         }.collect{ response ->
             response.onSuccess {
                 trySend(Result.Success(it))

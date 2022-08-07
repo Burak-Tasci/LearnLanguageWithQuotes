@@ -18,11 +18,11 @@ class GetQuoteUseCase @Inject constructor(
     private val quoteRepository: QuoteRepository,
     private val quoteMapper: QuoteMapper,
     @IoDispatcher private val ioDispatcher: CoroutineDispatcher
-) : BaseUseCase<Unit, Flow<Result<QuoteUiModel>>>() {
-    override suspend fun invoke(param: Unit): Flow<Result<QuoteUiModel>> = callbackFlow {
+) : BaseUseCase<String, Flow<Result<QuoteUiModel>>>() {
+    override suspend fun invoke(param: String): Flow<Result<QuoteUiModel>> = callbackFlow {
         withContext(ioDispatcher) {
             trySend(Result.Loading)
-            val quoteData = quoteRepository.getQuote()
+            val quoteData = quoteRepository.getQuote(param)
             quoteData.collect { response ->
                 response.onSuccess { quoteEntity ->
                     if (quoteEntity != null)

@@ -19,9 +19,12 @@ class HomeViewModel @Inject constructor(
     private val _quote: MutableStateFlow<QuoteUiModel> = MutableStateFlow(QuoteUiModel())
     val quote = _quote.asStateFlow()
 
+    private val _targetLanguageCode: MutableStateFlow<String> = MutableStateFlow("es")
+    val targetLanguageCode = _targetLanguageCode.asStateFlow()
+
     fun getQuote() {
         viewModelScope.launch {
-            getQuoteUseCase.invoke(Unit).collect { getQuoteResponse ->
+            getQuoteUseCase.invoke(targetLanguageCode.value).collect { getQuoteResponse ->
                 handleGetQuoteResponse(getQuoteResponse)
             }
         }
