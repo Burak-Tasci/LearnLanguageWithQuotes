@@ -9,4 +9,15 @@
     <string name="quote_label"><u>The Quote</u></string>
     <string name="owner_label"><u>Owner</u></string>
     <string name="tags_label"><u>Tags</u></string>
+
+    <string-array name="languages">
+        <item>en</item>
+        <item>es</item>
+        <item>pt</item>
+        <item>it</item>
+        <item>fr</item>
+        <item>de</item>
+        <item>cs</item>
+        <item>sk</item>
+    </string-array>
 </resources>
