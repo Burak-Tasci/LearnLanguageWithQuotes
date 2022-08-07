@@ -1,4 +1,4 @@
-package com.tsci.learnlanguagewithquotes.domain.use_case
+package com.tsci.learnlanguagewithquotes.domain.use_case.quote
 
 import com.tsci.learnlanguagewithquotes.common.network.Result
 import com.tsci.learnlanguagewithquotes.core.BaseUseCase
