@@ -37,7 +37,8 @@ object NetworkModule {
             val request = chain.request()
                 .newBuilder()
                 .addHeader(KEY_HEADER_API_KEY, BuildConfig.API_KEY)
-                .addHeader(KEY_HEADER_HOST, BuildConfig.BASE_URL).build()
+                .addHeader(KEY_HEADER_HOST, BuildConfig.HOST)
+                .build()
             return@addNetworkInterceptor chain.proceed(request)
         }
         .build()
