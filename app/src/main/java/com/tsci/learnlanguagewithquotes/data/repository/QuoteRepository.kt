@@ -19,9 +19,11 @@ class QuoteRepositoryImpl @Inject constructor(
 
     override fun getQuote(): Flow<Response<QuoteEntity>> = callbackFlow{
 
-        val quote = api.getQuote().collect { response ->
-            response.onSuccess {
-                trySend(Response.Success(it))
+        val quote = api.getQuote()
+        quote.collect { response ->
+            response.onSuccess { quote ->
+                if (quote != null) trySend(Response.Success(quote))
+                else trySend(Response.Error(Exception("Network call returned null.")))
             }.onError {
                 trySend(Response.Error(it.exception))
             }
