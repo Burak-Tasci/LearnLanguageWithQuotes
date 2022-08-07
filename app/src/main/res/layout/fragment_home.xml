@@ -24,7 +24,7 @@
             android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:ignoreViewBinding="false" />
+            tools:ignoreViewBinding="true" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tvQuote"
@@ -48,7 +48,7 @@
             android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvQuote"
-            tools:ignoreViewBinding="false" />
+            tools:ignoreViewBinding="true" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tvOwner"
@@ -72,7 +72,7 @@
             android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvOwner"
-            tools:ignoreViewBinding="false" />
+            tools:ignoreViewBinding="true" />
 
         <com.google.android.material.chip.ChipGroup
             android:id="@+id/cpTags"
