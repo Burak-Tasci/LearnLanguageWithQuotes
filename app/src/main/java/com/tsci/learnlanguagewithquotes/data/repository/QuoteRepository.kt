@@ -23,7 +23,7 @@ class QuoteRepositoryImpl @Inject constructor(
         quote.collect { response ->
             response.onSuccess { quote ->
                 if (quote != null) trySend(Response.Success(quote))
-                else trySend(Response.Error(Exception("Network call returned null.")))
+                else trySend(Response.Error(NullPointerException("Network call returned null.")))
             }.onError {
                 trySend(Response.Error(it.exception))
             }
