@@ -1,6 +1,6 @@
 package com.tsci.learnlanguagewithquotes.domain.use_case
 
-import com.tsci.learnlanguagewithquotes.common.network.Response
+import com.tsci.learnlanguagewithquotes.common.network.Result
 import com.tsci.learnlanguagewithquotes.core.BaseUseCase
 import com.tsci.learnlanguagewithquotes.data.repository.QuoteRepository
 import com.tsci.learnlanguagewithquotes.di.IoDispatcher
@@ -18,23 +18,22 @@ class GetQuoteUseCase @Inject constructor(
     private val quoteRepository: QuoteRepository,
     private val quoteMapper: QuoteMapper,
     @IoDispatcher private val ioDispatcher: CoroutineDispatcher
-) : BaseUseCase<Unit, Flow<Response<QuoteUiModel>>>() {
-    override suspend fun invoke(param: Unit): Flow<Response<QuoteUiModel>> = callbackFlow{
-
-        withContext(ioDispatcher){
+) : BaseUseCase<Unit, Flow<Result<QuoteUiModel>>>() {
+    override suspend fun invoke(param: Unit): Flow<Result<QuoteUiModel>> = callbackFlow {
+        withContext(ioDispatcher) {
+            trySend(Result.Loading)
             val quoteData = quoteRepository.getQuote()
-            quoteData.collect{ response ->
+            quoteData.collect { response ->
                 response.onSuccess { quoteEntity ->
                     if (quoteEntity != null)
-                        trySend(Response.Success(quoteMapper.map(quoteEntity)))
+                        trySend(Result.Success(quoteMapper.map(quoteEntity)))
                     else
-                        trySend(Response.Error(NullPointerException("Network call returned null.")))
+                        trySend(Result.Error(NullPointerException("Network call returned null.")))
                 }.onError {
-
+                    trySend(Result.Error(it.exception))
                 }
             }
         }
-
         this.awaitClose {
             this.cancel()
         }

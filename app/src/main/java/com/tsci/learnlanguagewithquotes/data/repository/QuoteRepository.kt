@@ -1,6 +1,7 @@
 package com.tsci.learnlanguagewithquotes.data.repository
 
-import com.tsci.learnlanguagewithquotes.common.network.Response
+import com.tsci.learnlanguagewithquotes.common.network.Result
+import com.tsci.learnlanguagewithquotes.core.BaseRepositoryImpl
 import com.tsci.learnlanguagewithquotes.data.remote.api.QuoteApi
 import com.tsci.learnlanguagewithquotes.data.remote.model.QuoteEntity
 import javax.inject.Inject
@@ -10,22 +11,21 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
 
 interface QuoteRepository {
-    fun getQuote(): Flow<Response<QuoteEntity>>
+    fun getQuote(): Flow<Result<QuoteEntity>>
 }
 
 class QuoteRepositoryImpl @Inject constructor(
     private val api: QuoteApi
-) : QuoteRepository {
+) : QuoteRepository, BaseRepositoryImpl() {
 
-    override fun getQuote(): Flow<Response<QuoteEntity>> = callbackFlow{
-
-        val quote = api.getQuote()
-        quote.collect { response ->
-            response.onSuccess { quote ->
-                if (quote != null) trySend(Response.Success(quote))
-                else trySend(Response.Error(NullPointerException("Network call returned null.")))
+    override fun getQuote(): Flow<Result<QuoteEntity>> = callbackFlow {
+        createCall {
+            api.getQuote()
+        }.collect{ response ->
+            response.onSuccess {
+                trySend(Result.Success(it))
             }.onError {
-                trySend(Response.Error(it.exception))
+                trySend(Result.Error(it.exception))
             }
         }
 
@@ -33,5 +33,4 @@ class QuoteRepositoryImpl @Inject constructor(
             this.cancel()
         }
     }
-
 }
