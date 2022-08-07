@@ -76,7 +76,9 @@
 
         <com.google.android.material.chip.ChipGroup
             android:id="@+id/cpTags"
-            android:layout_width="match_parent"
+            app:layout_constraintStart_toStartOf="@id/tvTagsLabel"
+            android:layout_width="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvTagsLabel"
             android:layout_height="wrap_content"/>
 
