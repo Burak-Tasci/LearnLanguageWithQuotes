@@ -9,7 +9,7 @@ class QuoteMapper @Inject constructor(
     private val ownerMapper: OwnerMapper
 ) {
     fun map(quoteEntity: QuoteEntity): QuoteUiModel = QuoteUiModel(
-        language_code = quoteEntity.language_code ?: "",
+        language_code = quoteEntity.languageCode ?: "",
         content = quoteEntity.content ?: "",
         owner = ownerMapper.map(quoteEntity.owner ?: OwnerEntity()),
         tags = (quoteEntity.tags ?: emptyList()) as List<String>
