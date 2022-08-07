@@ -2,7 +2,8 @@ package com.tsci.learnlanguagewithquotes.di
 
 import com.tsci.learnlanguagewithquotes.data.repository.QuoteRepository
 import com.tsci.learnlanguagewithquotes.domain.mapper.QuoteMapper
-import com.tsci.learnlanguagewithquotes.domain.use_case.GetQuoteUseCase
+import com.tsci.learnlanguagewithquotes.domain.use_case.onboarding.OnBoardingValidationUseCase
+import com.tsci.learnlanguagewithquotes.domain.use_case.quote.GetQuoteUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -24,4 +25,8 @@ object UseCaseModule {
             quoteRepository = quoteRepository,
             ioDispatcher = ioDispatcher
         )
+
+    @Provides
+    fun provideOnBoardingValidationUseCase() =
+        OnBoardingValidationUseCase()
 }
