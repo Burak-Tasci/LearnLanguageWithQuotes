@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.tsci.learnlanguagewithquotes.ui.onboarding.OnBoardingViewModel" />
@@ -39,16 +40,18 @@
             android:id="@+id/tilNative"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:layout_width="match_parent"
-            app:boxBackgroundColor="@android:color/transparent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/margin_30dp"
+            app:boxBackgroundColor="@android:color/transparent"
             app:layout_constraintTop_toBottomOf="@id/tvTitle">
 
             <AutoCompleteTextView
                 android:id="@+id/actvNative"
-                android:background="@android:color/transparent"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:afterTextChanged="@{(text) -> viewModel.setNativeLanguage(text)}"
+                android:background="@android:color/transparent"
+                android:focusableInTouchMode="true"
                 android:hint="@string/native_language"
                 android:inputType="none" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -67,19 +70,21 @@
                 android:id="@+id/actvTarget"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:hint="@string/target_language"
+                android:afterTextChanged="@{(text) -> viewModel.setTargetLanguage(text)}"
                 android:background="@android:color/transparent"
+                android:focusableInTouchMode="true"
+                android:hint="@string/target_language"
                 android:inputType="none" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnSubmit"
+            buttonEnabled="@{viewModel.isButtonEnabled()}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_14dp"
             android:backgroundTint="@color/baby_blue_eyes"
             android:text="@string/submit_btn"
-            buttonEnabled="@{viewModel.isButtonEnabled()}"
             android:textColor="@color/black"
             app:cornerRadius="@dimen/radius_8dp"
             app:layout_constraintEnd_toEndOf="@id/tilTarget"

@@ -5,9 +5,10 @@ import javax.inject.Inject
 
 class OnBoardingValidationUseCase @Inject constructor(
 
-) : BaseUseCase<OnBoardingValidationParam, Boolean>() {
+) : BaseUseCase<OnBoardingValidationUseCase.OnBoardingValidationParam, Boolean>() {
     override suspend fun invoke(param: OnBoardingValidationParam): Boolean =
         param.native.isNotEmpty() and param.target.isNotEmpty()
+
+    data class OnBoardingValidationParam(val native: String, val target: String)
 }
 
-data class OnBoardingValidationParam(val native: String, val target: String)

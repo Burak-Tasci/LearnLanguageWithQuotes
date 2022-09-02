@@ -4,7 +4,7 @@ import androidx.lifecycle.viewModelScope
 import com.tsci.learnlanguagewithquotes.common.network.Result
 import com.tsci.learnlanguagewithquotes.core.BaseViewModel
 import com.tsci.learnlanguagewithquotes.domain.model.QuoteUiModel
-import com.tsci.learnlanguagewithquotes.domain.use_case.GetQuoteUseCase
+import com.tsci.learnlanguagewithquotes.domain.use_case.quote.GetQuoteUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 import kotlinx.coroutines.flow.MutableStateFlow

@@ -3,7 +3,6 @@ package com.tsci.learnlanguagewithquotes.ui.onboarding
 import androidx.lifecycle.viewModelScope
 import com.tsci.learnlanguagewithquotes.core.BaseViewModel
 import com.tsci.learnlanguagewithquotes.data.local.preferences.PreferencesManager
-import com.tsci.learnlanguagewithquotes.domain.use_case.onboarding.OnBoardingValidationParam
 import com.tsci.learnlanguagewithquotes.domain.use_case.onboarding.OnBoardingValidationUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -31,7 +30,7 @@ class OnBoardingViewModel @Inject constructor(
         viewModelScope.launch {
             combine(nativeLanguage, targetLanguage) { native, target ->
                 return@combine onBoardingValidationUseCase.invoke(
-                    OnBoardingValidationParam(
+                    OnBoardingValidationUseCase.OnBoardingValidationParam(
                         native,
                         target
                     )
@@ -45,5 +44,11 @@ class OnBoardingViewModel @Inject constructor(
 
     fun setOnboardingPreference(hasOnBoarding: Boolean) {
         preferencesManager.setIsFirstOpening(hasOnBoarding)
+    }
+    fun setTargetLanguage(text: CharSequence) {
+        this._targetLanguage.value = text.toString()
+    }
+    fun setNativeLanguage(text: CharSequence) {
+        this._nativeLanguage.value = text.toString()
     }
 }
