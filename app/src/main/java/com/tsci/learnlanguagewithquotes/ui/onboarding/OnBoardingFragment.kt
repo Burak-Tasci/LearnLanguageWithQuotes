@@ -26,7 +26,7 @@ class OnBoardingFragment : BaseFragment<FragmentOnBoardingBinding, OnBoardingVie
         actvNative.setAdapter(adapter)
         actvTarget.setAdapter(adapter)
 
-//        viewModel.setOnboardingPreference(false)
+        viewModel?.setOnboardingPreference(false)
     }
 
 

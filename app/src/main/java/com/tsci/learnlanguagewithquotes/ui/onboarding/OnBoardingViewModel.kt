@@ -46,9 +46,11 @@ class OnBoardingViewModel @Inject constructor(
         preferencesManager.setIsFirstOpening(hasOnBoarding)
     }
     fun setTargetLanguage(text: CharSequence) {
+        preferencesManager.setTargetLanguage(text.toString())
         this._targetLanguage.value = text.toString()
     }
     fun setNativeLanguage(text: CharSequence) {
+        preferencesManager.setNativeLanguage(text.toString())
         this._nativeLanguage.value = text.toString()
     }
 }
