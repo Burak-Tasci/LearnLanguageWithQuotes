@@ -12,13 +12,14 @@ import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.createViewModelLazy
 import androidx.lifecycle.lifecycleScope
+import com.tsci.learnlanguagewithquotes.common.dialog.ProgressDialog
 import com.tsci.learnlanguagewithquotes.common.extension.toast
 import kotlinx.coroutines.launch
 
 abstract class BaseFragment<T : ViewDataBinding, V : BaseViewModel> : Fragment() {
 
     private val progressDialog by lazy {
-        BaseProgressDialog(fragmentContext)
+        ProgressDialog(fragmentContext)
     }
     protected lateinit var fragmentContext: Context
 

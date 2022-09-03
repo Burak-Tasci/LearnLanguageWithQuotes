@@ -1,4 +1,4 @@
-package com.tsci.learnlanguagewithquotes.core
+package com.tsci.learnlanguagewithquotes.common.dialog
 
 import android.app.Dialog
 import android.content.Context
@@ -6,10 +6,8 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import com.tsci.learnlanguagewithquotes.R
 
-/**
- * Created by Mehmet Peker on 13.07.2022.
- */
-class BaseProgressDialog(context: Context) : Dialog(context) {
+
+class ProgressDialog(context: Context) : Dialog(context) {
 
     init {
         setContentView(R.layout.dialog_progress)
