@@ -19,8 +19,13 @@ class SplashFragment : BaseFragment<FragmentSplashBinding, SplashViewModel>() {
     override fun initView() {
         lifecycleScope.launch{
             delay(DELAY)
-            val action = SplashFragmentDirections.toOnBoardingFragment()
+            val action = if (viewModel.getIsFirstOpening()) {
+                SplashFragmentDirections.toOnBoardingFragment()
+            } else {
+                SplashFragmentDirections.toHomeFragment()
+            }
             findNavController().navigate(action)
+
         }
     }
 
