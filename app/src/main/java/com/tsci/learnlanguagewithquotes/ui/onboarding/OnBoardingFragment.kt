@@ -35,9 +35,11 @@ class OnBoardingFragment : BaseFragment<FragmentOnBoardingBinding, OnBoardingVie
 
     override fun initListeners() = with(binding) {
         btnSubmit.setOnClickListener {
-            findNavController().navigate(
-                OnBoardingFragmentDirections.toHomeFragment()
-            )
+            if (findNavController().previousBackStackEntry?.destination?.id == R.id.homeFragment){
+                findNavController().popBackStack()
+            } else {
+                findNavController().navigate(OnBoardingFragmentDirections.toHomeFragment())
+            }
         }
     }
 }
