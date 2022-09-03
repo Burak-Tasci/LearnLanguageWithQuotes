@@ -90,16 +90,5 @@
             app:layout_constraintEnd_toEndOf="@id/tilTarget"
             app:layout_constraintTop_toBottomOf="@id/tilTarget" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/margin_35dp"
-            android:layout_marginBottom="@dimen/margin_20dp"
-            android:gravity="center"
-            android:text="@string/onboarding_choice_text"
-            android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
-            android:textColor="@color/black"
-            app:layout_constraintBottom_toBottomOf="parent" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

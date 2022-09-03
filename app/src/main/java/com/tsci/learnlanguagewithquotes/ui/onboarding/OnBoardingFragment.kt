@@ -24,7 +24,10 @@ class OnBoardingFragment : BaseFragment<FragmentOnBoardingBinding, OnBoardingVie
             resources.getStringArray(R.array.languages)
         )
         actvNative.setAdapter(adapter)
+        actvNative.setText(viewModel?.nativeLanguage?.value)
+
         actvTarget.setAdapter(adapter)
+        actvTarget.setText(viewModel?.targetLanguage?.value)
 
         viewModel?.setOnboardingPreference(false)
     }

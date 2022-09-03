@@ -24,6 +24,9 @@ class HomeViewModel @Inject constructor(
     private val _targetLanguageCode: MutableStateFlow<String> = MutableStateFlow(preferencesManager.getTargetLanguage())
     val targetLanguageCode = _targetLanguageCode.asStateFlow()
 
+    init {
+        getQuote()
+    }
     fun getQuote() {
         viewModelScope.launch {
             getQuoteUseCase.invoke(targetLanguageCode.value).collect { getQuoteResponse ->

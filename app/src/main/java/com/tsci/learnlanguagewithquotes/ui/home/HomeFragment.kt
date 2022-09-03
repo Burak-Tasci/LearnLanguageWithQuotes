@@ -1,6 +1,7 @@
 package com.tsci.learnlanguagewithquotes.ui.home
 
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.tsci.learnlanguagewithquotes.R
 import com.tsci.learnlanguagewithquotes.common.extension.clearChips
 import com.tsci.learnlanguagewithquotes.common.extension.setChips
@@ -18,7 +19,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
     override fun viewModelClass(): Class<HomeViewModel> = HomeViewModel::class.java
 
     override fun initView(): Unit = with(binding) {
-        viewModel.getQuote()
         lifecycleScope.launch{
             viewModel.quote.collect{
                 tvQuote.text = it.content
@@ -33,6 +33,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
         toolbar.ivRefresh.setOnClickListener {
             cpTags.clearChips()
             viewModel.getQuote()
+        }
+        toolbar.ivSettings.setOnClickListener {
+            findNavController().navigate(
+                HomeFragmentDirections.toOnBoardingFragment()
+            )
         }
     }
 

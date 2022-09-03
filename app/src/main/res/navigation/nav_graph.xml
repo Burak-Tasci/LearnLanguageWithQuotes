@@ -7,13 +7,19 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.tsci.learnlanguagewithquotes.ui.home.HomeFragment"
-        android:label="HomeFragment" />
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/to_onBoardingFragment"
+            app:destination="@id/onBoardingFragment" />
+    </fragment>
     <fragment
         android:id="@+id/onBoardingFragment"
         android:name="com.tsci.learnlanguagewithquotes.ui.onboarding.OnBoardingFragment"
         android:label="OnBoardingFragment" >
         <action
             android:id="@+id/to_homeFragment"
+            app:popUpTo="@id/onBoardingFragment"
+            app:popUpToInclusive="true"
             app:destination="@id/homeFragment" />
     </fragment>
     <fragment

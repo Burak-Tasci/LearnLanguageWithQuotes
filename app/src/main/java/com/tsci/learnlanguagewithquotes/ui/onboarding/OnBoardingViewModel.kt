@@ -17,10 +17,10 @@ class OnBoardingViewModel @Inject constructor(
     private val onBoardingValidationUseCase: OnBoardingValidationUseCase
 ) : BaseViewModel() {
 
-    private val _nativeLanguage: MutableStateFlow<String> = MutableStateFlow("")
+    private val _nativeLanguage: MutableStateFlow<String> = MutableStateFlow(preferencesManager.getNativeLanguage())
     val nativeLanguage = _nativeLanguage.asStateFlow()
 
-    private val _targetLanguage: MutableStateFlow<String> = MutableStateFlow("")
+    private val _targetLanguage: MutableStateFlow<String> = MutableStateFlow(preferencesManager.getTargetLanguage())
     val targetLanguage = _targetLanguage.asStateFlow()
 
     private val _isButtonEnabled = MutableStateFlow(false)
