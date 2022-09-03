@@ -9,4 +9,5 @@
     <color name="white">#FFFFFFFF</color>
     
     <color name="baby_blue_eyes">#AAB6FE</color>
+    <color name="window_color">#6F000000</color>
 </resources>
