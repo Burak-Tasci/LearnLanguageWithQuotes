@@ -14,7 +14,9 @@ class OnBoardingFragment : BaseFragment<FragmentOnBoardingBinding, OnBoardingVie
     override fun viewModelClass(): Class<OnBoardingViewModel> = OnBoardingViewModel::class.java
     override fun layoutRes(): Int = R.layout.fragment_on_boarding
 
-    override fun initView() = with(binding) {
+    override fun initView(): Unit = with(binding) {
+        this.viewModel = this@OnBoardingFragment.viewModel
+        executePendingBindings()
 
         val adapter = ArrayAdapter(
             requireContext(),

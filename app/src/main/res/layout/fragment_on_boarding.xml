@@ -79,7 +79,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnSubmit"
-            buttonEnabled="@{viewModel.isButtonEnabled()}"
+            buttonEnabled="@{viewModel.isButtonEnabled}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_14dp"
