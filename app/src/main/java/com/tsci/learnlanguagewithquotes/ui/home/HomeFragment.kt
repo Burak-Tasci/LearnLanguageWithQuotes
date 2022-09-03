@@ -1,5 +1,6 @@
 package com.tsci.learnlanguagewithquotes.ui.home
 
+import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.tsci.learnlanguagewithquotes.R
@@ -26,6 +27,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
                 cpTags.setChips(it.tags){}
             }
         }
+    }
+
+    override fun onViewStateRestored(savedInstanceState: Bundle?) {
+        super.onViewStateRestored(savedInstanceState)
+        // todo refactor target language check
+        viewModel.refreshTargetLanguage()
     }
 
     override fun initListeners(): Unit = with(binding) {

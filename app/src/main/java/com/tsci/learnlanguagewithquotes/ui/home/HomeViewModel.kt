@@ -48,4 +48,7 @@ class HomeViewModel @Inject constructor(
             isLoading.value = true
         }
     }
+    fun refreshTargetLanguage() {
+        this._targetLanguageCode.value = preferencesManager.getTargetLanguage()
+    }
 }
