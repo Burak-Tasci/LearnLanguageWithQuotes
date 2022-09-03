@@ -2,6 +2,7 @@ package com.tsci.learnlanguagewithquotes.ui.home
 
 import androidx.lifecycle.lifecycleScope
 import com.tsci.learnlanguagewithquotes.R
+import com.tsci.learnlanguagewithquotes.common.extension.clearChips
 import com.tsci.learnlanguagewithquotes.common.extension.setChips
 import com.tsci.learnlanguagewithquotes.core.BaseFragment
 import com.tsci.learnlanguagewithquotes.databinding.FragmentHomeBinding
@@ -24,6 +25,14 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
                 tvOwner.text = it.owner.name
                 cpTags.setChips(it.tags){}
             }
+        }
+    }
+
+    override fun initListeners(): Unit = with(binding) {
+
+        toolbar.ivRefresh.setOnClickListener {
+            cpTags.clearChips()
+            viewModel.getQuote()
         }
     }
 

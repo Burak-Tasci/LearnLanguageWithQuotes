@@ -3,6 +3,7 @@ package com.tsci.learnlanguagewithquotes.ui.home
 import androidx.lifecycle.viewModelScope
 import com.tsci.learnlanguagewithquotes.common.network.Result
 import com.tsci.learnlanguagewithquotes.core.BaseViewModel
+import com.tsci.learnlanguagewithquotes.data.local.preferences.PreferencesManager
 import com.tsci.learnlanguagewithquotes.domain.model.QuoteUiModel
 import com.tsci.learnlanguagewithquotes.domain.use_case.quote.GetQuoteUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -13,13 +14,14 @@ import kotlinx.coroutines.launch
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private val getQuoteUseCase: GetQuoteUseCase
+    private val getQuoteUseCase: GetQuoteUseCase,
+    private val preferencesManager: PreferencesManager
 ) : BaseViewModel() {
 
     private val _quote: MutableStateFlow<QuoteUiModel> = MutableStateFlow(QuoteUiModel())
     val quote = _quote.asStateFlow()
 
-    private val _targetLanguageCode: MutableStateFlow<String> = MutableStateFlow("es")
+    private val _targetLanguageCode: MutableStateFlow<String> = MutableStateFlow(preferencesManager.getTargetLanguage())
     val targetLanguageCode = _targetLanguageCode.asStateFlow()
 
     fun getQuote() {

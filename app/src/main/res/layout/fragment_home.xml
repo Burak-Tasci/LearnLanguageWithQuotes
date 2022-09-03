@@ -7,82 +7,103 @@
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
         android:background="@drawable/background_gradient"
-        tools:context=".ui.home.HomeFragment">
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/home_toolbar" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:fillViewport="true"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:context=".ui.home.HomeFragment">
 
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tvQuoteLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/margin_18dp"
-            android:layout_marginTop="@dimen/margin_40dp"
-            android:text="@string/quote_label"
-            android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignoreViewBinding="true" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tvQuote"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_8dp"
-            android:layout_marginEnd="@dimen/margin_18dp"
-            android:textAppearance="@style/TextAppearance.Material3.HeadlineSmall"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@id/tvQuoteLabel"
-            app:layout_constraintTop_toBottomOf="@id/tvQuoteLabel"
-            tools:text="We know what we are, but know not what we may be." />
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvQuoteLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin_18dp"
+                    android:layout_marginTop="@dimen/margin_40dp"
+                    android:text="@string/quote_label"
+                    android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignoreViewBinding="true" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tvOwnerLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/margin_18dp"
-            android:layout_marginTop="@dimen/margin_8dp"
-            android:text="@string/owner_label"
-            android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvQuote"
-            tools:ignoreViewBinding="true" />
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvQuote"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_8dp"
+                    android:layout_marginEnd="@dimen/margin_18dp"
+                    android:textAppearance="@style/TextAppearance.Material3.HeadlineSmall"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/tvQuoteLabel"
+                    app:layout_constraintTop_toBottomOf="@id/tvQuoteLabel"
+                    tools:text="We know what we are, but know not what we may be." />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tvOwner"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_8dp"
-            android:layout_marginEnd="@dimen/margin_18dp"
-            android:textAppearance="@style/TextAppearance.Material3.HeadlineSmall"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@id/tvQuoteLabel"
-            app:layout_constraintTop_toBottomOf="@id/tvOwnerLabel"
-            tools:text="William Shakespeare" />
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvOwnerLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin_18dp"
+                    android:layout_marginTop="@dimen/margin_8dp"
+                    android:text="@string/owner_label"
+                    android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvQuote"
+                    tools:ignoreViewBinding="true" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tvTagsLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/margin_18dp"
-            android:layout_marginTop="@dimen/margin_8dp"
-            android:text="@string/tags_label"
-            android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvOwner"
-            tools:ignoreViewBinding="true" />
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvOwner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_8dp"
+                    android:layout_marginEnd="@dimen/margin_18dp"
+                    android:textAppearance="@style/TextAppearance.Material3.HeadlineSmall"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/tvQuoteLabel"
+                    app:layout_constraintTop_toBottomOf="@id/tvOwnerLabel"
+                    tools:text="William Shakespeare" />
 
-        <com.google.android.material.chip.ChipGroup
-            android:id="@+id/cpTags"
-            app:layout_constraintStart_toStartOf="@id/tvTagsLabel"
-            android:layout_width="0dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvTagsLabel"
-            android:layout_height="wrap_content"/>
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvTagsLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin_18dp"
+                    android:layout_marginTop="@dimen/margin_8dp"
+                    android:text="@string/tags_label"
+                    android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvOwner"
+                    tools:ignoreViewBinding="true" />
 
-        
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/cpTags"
+                    app:layout_constraintStart_toStartOf="@id/tvTagsLabel"
+                    android:layout_width="0dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="@dimen/margin_8dp"
+                    app:layout_constraintTop_toBottomOf="@id/tvTagsLabel"
+                    android:layout_height="wrap_content"/>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </ScrollView>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
 </layout>
