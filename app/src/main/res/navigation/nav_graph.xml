@@ -37,4 +37,15 @@
             app:popUpTo="@id/splashFragment"
             app:popUpToInclusive="true" />
     </fragment>
+    <dialog
+        android:id="@+id/translateDialog"
+        android:name="com.tsci.learnlanguagewithquotes.common.dialog.TranslateDialog"
+        android:label="TranslateDialog" >
+        <argument
+            android:name="translateText"
+            app:argType="string" />
+    </dialog>
+    <action
+        android:id="@+id/global_translateDialog"
+        app:destination="@id/translateDialog" />
 </navigation>
