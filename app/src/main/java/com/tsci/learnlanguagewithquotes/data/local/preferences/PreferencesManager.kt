@@ -13,20 +13,28 @@ class PreferencesManager @Inject constructor(
         context.getSharedPreferences(context.getString(R.string.app_name), Context.MODE_PRIVATE)
     private val editor = preferencesManager.edit()
 
-    fun getIsFirstOpening(): Boolean = preferencesManager.getBoolean(KEY_IS_FIRST_LOGIN, true)
-    fun setIsFirstOpening(hasOnboarding: Boolean) = editor.putBoolean(KEY_IS_FIRST_LOGIN, hasOnboarding).apply()
+    fun getIsFirstOpening(): Boolean = preferencesManager.getBoolean(KEY_IS_FIRST_LOGIN, DEFAULT_FIRST_OPENING)
+    fun setIsFirstOpening(hasOnboarding: Boolean) =
+        editor.putBoolean(KEY_IS_FIRST_LOGIN, hasOnboarding).apply()
 
-    fun getNativeLanguage() = preferencesManager.getString(KEY_NATIVE, "")
-    fun setNativeLanguage(nativeLanguage: String) = editor.putString(KEY_NATIVE, nativeLanguage).apply()
+    fun getNativeLanguage() = preferencesManager.getString(KEY_NATIVE, EMPTY_STRING) ?: DEFAULT_NATIVE_LANG
+    fun setNativeLanguage(nativeLanguage: String) =
+        editor.putString(KEY_NATIVE, nativeLanguage).apply()
 
-    fun getTargetLanguage() = preferencesManager.getString(KEY_TARGET, "")
-    fun setTargetLanguage(targetLanguage: String) = editor.putString(KEY_TARGET, targetLanguage).apply()
+    fun getTargetLanguage() = preferencesManager.getString(KEY_TARGET, EMPTY_STRING) ?: DEFAULT_TARGET_LANG
+    fun setTargetLanguage(targetLanguage: String) =
+        editor.putString(KEY_TARGET, targetLanguage).apply()
 
-    
 
-    companion object{
-        private const val KEY_IS_FIRST_LOGIN =  "isFirstLogin"
+    companion object {
+        private const val KEY_IS_FIRST_LOGIN = "isFirstLogin"
         private const val KEY_NATIVE = "native"
         private const val KEY_TARGET = "target"
+
+        private const val DEFAULT_NATIVE_LANG = "en"
+        private const val DEFAULT_TARGET_LANG = "en"
+        private const val DEFAULT_FIRST_OPENING = true
+
+        private const val EMPTY_STRING = ""
     }
 }
