@@ -52,6 +52,7 @@
                 android:afterTextChanged="@{(text) -> viewModel.setNativeLanguage(text)}"
                 android:background="@android:color/transparent"
                 android:focusableInTouchMode="true"
+                android:text="@{viewModel.nativeLanguage}"
                 android:hint="@string/native_language"
                 android:inputType="none" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -73,6 +74,7 @@
                 android:afterTextChanged="@{(text) -> viewModel.setTargetLanguage(text)}"
                 android:background="@android:color/transparent"
                 android:focusableInTouchMode="true"
+                android:text="@{viewModel.targetLanguage}"
                 android:hint="@string/target_language"
                 android:inputType="none" />
         </com.google.android.material.textfield.TextInputLayout>
