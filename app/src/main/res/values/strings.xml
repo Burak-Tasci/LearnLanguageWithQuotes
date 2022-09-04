@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">LearnLanguageWithQuotes</string>
+    <string name="app_name">Learn Language With Quotes</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="onboarding_title">LEARN LANGUAGE WITH\nQUOTES</string>
     <string name="native_language">Native Language</string>
