@@ -18,13 +18,18 @@ class OnBoardingFragment : BaseFragment<FragmentOnBoardingBinding, OnBoardingVie
         this.viewModel = this@OnBoardingFragment.viewModel
         executePendingBindings()
 
-        val adapter = ArrayAdapter(
+        val targetLanguagesAdapter = ArrayAdapter(
             requireContext(),
             R.layout.item_language,
-            resources.getStringArray(R.array.languages)
+            resources.getStringArray(R.array.target_languages)
         )
-        actvNative.setAdapter(adapter)
-        actvTarget.setAdapter(adapter)
+        val nativeLanguagesAdapter = ArrayAdapter(
+            requireContext(),
+            R.layout.item_language,
+            resources.getStringArray(R.array.native_languages)
+        )
+        actvNative.setAdapter(nativeLanguagesAdapter)
+        actvTarget.setAdapter(targetLanguagesAdapter)
 
         viewModel?.setOnboardingPreference(false)
     }
