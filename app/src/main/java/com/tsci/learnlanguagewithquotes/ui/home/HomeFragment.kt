@@ -19,10 +19,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
     override fun viewModelClass(): Class<HomeViewModel> = HomeViewModel::class.java
 
     override fun initView(): Unit = with(binding) {
+
         lifecycleScope.launch{
             viewModel.quote.collect{ quote ->
-                tvQuote.text = quote.content
-                tvOwner.text = quote.owner.name
+                this@with.quote = quote
                 cpTags.setChips(quote.tags){ position ->
                     quote.tags[position].also { textToTranslate ->
                         val action = HomeFragmentDirections.globalTranslateDialog(textToTranslate)

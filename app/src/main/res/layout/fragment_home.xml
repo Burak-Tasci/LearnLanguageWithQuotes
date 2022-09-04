@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="quote"
+            type="com.tsci.learnlanguagewithquotes.domain.model.QuoteUiModel" />
     </data>
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -47,6 +49,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_8dp"
                     android:layout_marginEnd="@dimen/margin_18dp"
+                    android:text="@{quote.content}"
                     android:textAppearance="@style/TextAppearance.Material3.HeadlineSmall"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@id/tvQuoteLabel"
@@ -71,6 +74,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_8dp"
                     android:layout_marginEnd="@dimen/margin_18dp"
+                    android:text="@{quote.owner.name}"
                     android:textAppearance="@style/TextAppearance.Material3.HeadlineSmall"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@id/tvQuoteLabel"
