@@ -20,20 +20,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
 
     override fun initView(): Unit = with(binding) {
 
-        lifecycleScope.launch{
-            viewModel.quote.collect{ quote ->
+        lifecycleScope.launch {
+            viewModel.quote.collect { quote ->
                 this@with.quote = quote
-                cpTags.setChips(quote.tags){ position ->
-                    quote.tags[position].also { textToTranslate ->
-                        val action = HomeFragmentDirections.globalTranslateDialog(textToTranslate)
-                        findNavController().navigate(action)
-                    }
-                }
-                tvQuote.setOnLongClickListener {
-                    val action = HomeFragmentDirections.globalTranslateDialog(quote.content)
-                    findNavController().navigate(action)
-                    true
-                }
+                setChipTags(quote.tags)
             }
         }
     }
@@ -52,9 +42,22 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
             viewModel.getQuote()
         }
         toolbar.ivSettings.setOnClickListener {
-            findNavController().navigate(
-                HomeFragmentDirections.toOnBoardingFragment()
-            )
+            val action = HomeFragmentDirections.toOnBoardingFragment()
+            findNavController().navigate(action)
+        }
+        tvQuote.setOnLongClickListener {
+            val action = HomeFragmentDirections.globalTranslateDialog(quote?.content!!)
+            findNavController().navigate(action)
+            true
+        }
+    }
+
+    private fun setChipTags(tags: List<String>) {
+        binding.cpTags.setChips(tags) { position ->
+            tags[position].also { textToTranslate ->
+                val action = HomeFragmentDirections.globalTranslateDialog(textToTranslate)
+                findNavController().navigate(action)
+            }
         }
     }
 
