@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebView
+import android.webkit.WebViewClient
 import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.navArgs
 import com.tsci.learnlanguagewithquotes.data.local.preferences.PreferencesManager
@@ -42,6 +44,11 @@ class TranslateDialog: DialogFragment(){
                 "op=translate"
 
         binding.wvTranslate.apply {
+            webViewClient = object : WebViewClient() {
+                override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
+                    return true
+                }
+            }
             settings.javaScriptEnabled = true
             settings.domStorageEnabled = true
             loadUrl(targetUrl)
