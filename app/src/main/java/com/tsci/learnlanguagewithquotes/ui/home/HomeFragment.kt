@@ -16,7 +16,6 @@ import kotlinx.coroutines.launch
 class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
 
     override fun layoutRes(): Int = R.layout.fragment_home
-
     override fun viewModelClass(): Class<HomeViewModel> = HomeViewModel::class.java
 
     override fun initView(): Unit = with(binding) {
@@ -26,13 +25,14 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
                 tvOwner.text = quote.owner.name
                 cpTags.setChips(quote.tags){ position ->
                     quote.tags[position].also { textToTranslate ->
-                        val action = HomeFragmentDirections.globalTranslateDialog(
-                            textToTranslate
-                        )
-                        findNavController().navigate(
-                            action
-                        )
+                        val action = HomeFragmentDirections.globalTranslateDialog(textToTranslate)
+                        findNavController().navigate(action)
                     }
+                }
+                tvQuote.setOnLongClickListener {
+                    val action = HomeFragmentDirections.globalTranslateDialog(quote.content)
+                    findNavController().navigate(action)
+                    true
                 }
             }
         }
@@ -42,6 +42,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
         super.onViewStateRestored(savedInstanceState)
         // todo refactor target language check
         viewModel.refreshTargetLanguage()
+        viewModel.getQuote()
     }
 
     override fun initListeners(): Unit = with(binding) {

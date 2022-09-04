@@ -10,6 +10,7 @@ import androidx.navigation.fragment.navArgs
 import com.tsci.learnlanguagewithquotes.data.local.preferences.PreferencesManager
 import com.tsci.learnlanguagewithquotes.databinding.DialogTranslateBinding
 
+
 class TranslateDialog: DialogFragment(){
 
     private val args by navArgs<TranslateDialogArgs>()
@@ -45,6 +46,14 @@ class TranslateDialog: DialogFragment(){
             settings.domStorageEnabled = true
             loadUrl(targetUrl)
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        val width = (resources.displayMetrics.widthPixels * 0.85).toInt()
+        val height = (resources.displayMetrics.heightPixels * 0.50).toInt()
+        requireDialog().window?.setLayout(width, ViewGroup.LayoutParams.WRAP_CONTENT)
+        requireDialog().window?.setLayout(height, ViewGroup.LayoutParams.WRAP_CONTENT)
     }
 
 
