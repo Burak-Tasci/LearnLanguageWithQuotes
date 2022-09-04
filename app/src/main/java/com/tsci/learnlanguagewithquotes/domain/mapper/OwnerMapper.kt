@@ -8,6 +8,10 @@ class OwnerMapper @Inject constructor(
 
 ) {
     fun map(ownerEntity: OwnerEntity): OwnerUiModel = OwnerUiModel(
-        name = ownerEntity.name ?: ""
+        name = ownerEntity.name ?: ANONYMOUS
     )
+
+    companion object {
+        const val ANONYMOUS = "Anonymous"
+    }
 }
